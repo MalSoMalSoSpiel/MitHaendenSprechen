@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
+       <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
     <title>Mit den Händen sprechen</title>
     <style>
         :root {
             --bg-white: #ffffff;
-            --text-dark: #2b2b2b;
+            --text-dark: #1a1a1a;
             --ocean-blue: #1c75bc;
             --font-headings: 'crayonize', sans-serif;
             --font-body: 'neulis-sans', sans-serif;
@@ -26,181 +26,157 @@
             min-height: 100vh;
         }
 
-        /* 1. Header: Clean ohne Konfetti dahinter */
-        header {
-            width: 100%;
-            height: 180px; /* Höhe an dein Wellen-PNG anpassen */
-            background-image: url('header.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* Zweizeiliger Header-Text in Weiß (Crayonize) */
-        .header-title {
-            color: white;
+        /* 1. Kleiner Text ganz oben */
+        .top-bar-text {
             font-family: var(--font-headings);
-            font-size: 26px;
-            line-height: 1.2;
-            letter-spacing: 1px;
-            margin-top: -30px; /* Perfekt ausbalanciert im blauen Band */
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-        }
-
-        /* Haupt-Inhalt mit deinem Konfetti-PNG als dezenten Hintergrund */
-        .main-content {
-            width: 100%;
-            background-image: url('konfetti.png');
-            background-repeat: repeat;
-            background-size: 400px auto; /* Macht das Konfetti modern und dezent */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-grow: 1;
-        }
-
-        .container {
-            max-width: 680px;
-            width: 90%;
-            padding: 40px 0;
-            box-sizing: border-box;
-        }
-
-        /* 2. Logo erst UNTER dem Header platziert */
-        .logo-box {
-            max-width: 220px;
-            margin: 0 auto 40px auto;
+            font-size: 13px;
+            color: #1c75bc;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 35px;
             text-align: center;
         }
-        .logo-box img {
+
+        /* 2. Großer Logo- & Konfetti-Bereich (Deine kombinierte PNG-Grafik) */
+        .logo-section {
+            max-width: 480px; /* Leicht erhöht, damit das Konfetti links und rechts Platz hat */
+            width: 90%;
+            margin: 10px auto 35px auto;
+            text-align: center;
+        }
+        .logo-section img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* 3. Das asymmetrische, cleane Layout aus deiner Zeichnung */
-        .layout-grid {
+        /* 3. Das asymmetrische, cleane Layout-Raster */
+        .main-container {
+            max-width: 850px;
+            width: 90%;
             display: grid;
-            grid-template-columns: 1.2fr 1fr; /* Links etwas breiter als rechts */
-            gap: 25px;
-            align-items: start;
-            width: 100%;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 30px;
+            margin-bottom: 80px;
         }
 
-        /* Linke Spalte: Großes Bild + Überschrift + Text direkt darunter */
+        /* Linke Spalte: Großes Bild + Zentrierter Inhalt darunter */
         .left-column {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
-        /* Rechte Spalte: Die zwei kleinen Bilder untereinander */
+        /* Rechte Spalte: Die zwei kleineren Bilder untereinander */
         .right-column {
             display: flex;
             flex-direction: column;
             gap: 25px;
-            /* Sorgt dafür, dass die Bilder länger nach unten ragen als die linke Spalte */
-            margin-bottom: -60px; 
         }
 
-        /* Clean abbilden: Nur das pure Bild mit runden Ecken, KEINE Boxen oder dicke Rahmen */
-        .clean-img {
+        /* Bilder im modern-cleanen Stil */
+        .content-img {
             width: 100%;
             height: auto;
-            border-radius: 20px;
+            border-radius: 0px; 
             display: block;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Moderner, weicher Schatten */
         }
 
-        /* 4. Text-Bereich: Sitzt genau unter dem linken Bild */
-        .text-section {
-            text-align: left;
-            margin-top: 25px;
-            padding-right: 10px;
+        /* 4. Text-Bereich: Komplett zentriert unter dem linken Bild */
+        .text-content {
+            text-align: center;
+            margin-top: 40px;
+            padding: 0 10px;
         }
 
-        .text-section h2 {
+        .text-content h2 {
             font-family: var(--font-headings);
-            color: #de6b48;
             font-size: 28px;
-            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            margin: 0 0 20px 0;
+            color: #1a1a1a;
+            letter-spacing: 0.5px;
         }
 
-        .text-section p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            margin: 0 0 15px 0;
+        .text-content p {
+            font-size: 16.5px;
+            line-height: 1.65;
+            color: #333333;
+            margin: 0 0 20px 0;
         }
 
-        /* 5. Footer als PNG-Hintergrund */
+        /* 5. Wellen-Footer ganz unten */
         footer {
             width: 100%;
-            height: 160px; /* Höhe an dein PNG anpassen */
+            height: 180px;
             background-image: url('footer.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
+            margin-top: auto;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            padding-top: 40px;
+            padding-bottom: 35px;
             box-sizing: border-box;
-            z-index: 10;
+        }
+
+        .footer-text {
+            color: white;
+            font-family: var(--font-headings);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Mobil-Optimierung für Smartphones */
+        @media (max-width: 680px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .right-column {
+                order: 2;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <!-- Zweizeilige Überschrift im Header -->
-        <div class="header-title">
-            Gebärden entdecken –<br>Stickersammelspaß
-        </div>
-    </header>
+    <!-- Kleiner Text oben -->
+    <div class="top-bar-text">Gebärden entdecken mit Stickersammelspaß</div>
 
-    <!-- Der Hauptbereich, in dem das Konfetti frei fließt -->
-    <div class="main-content">
-        <div class="container">
-
-            <!-- Das Logo thront jetzt unter dem Header auf dem Konfetti -->
-            <div class="logo-box">
-                <img src="logo.png" alt="Projekt Logo">
-            </div>
-
-            <!-- Das asymmetrische Raster exakt wie gezeichnet -->
-            <div class="layout-grid">
-                
-                <!-- Links: Großes Bild und der Erklärtext darunter -->
-                <div class="left-column">
-                    <img src="bild1.jpg" alt="Projekt Vorschau 1" class="clean-img">
-                    
-                    <!-- Überschrift & Text genau zwischen den Bildern platziert -->
-                    <div class="text-section">
-                        <h2>Schön, dass du da bist! 🌟</h2>
-                        <p>Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
-                        <p><strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. Viel Spaß beim Entdecken!</p>
-                    </div>
-                </div>
-                
-                <!-- Rechts: Die zwei orangefarbenen Bilder ragen länger nach unten heraus -->
-                <div class="right-column">
-                    <img src="bild2.jpg" alt="Projekt Vorschau 2" class="clean-img">
-                    <img src="bild3.jpg" alt="Projekt Vorschau 3" class="clean-img">
-                </div>
-
-            </div>
-
-        </div>
+    <!-- Deine Kombi-Datei: Logo mit den Konfettis drumherum -->
+    <div class="logo-section">
+        <img src="logo.png" alt="Mit den Händen sprechen Logo">
     </div>
 
+    <!-- Das asymmetrische Raster -->
+    <div class="main-container">
+        
+        <!-- Links: Großes Bild und der zentrierte Text direkt darunter -->
+        <div class="left-column">
+            <img src="bild1.jpg" alt="Geöffnetes Stickerheft" class="content-img">
+            
+            <div class="text-content">
+                <h2>Schön, dass du da bist!</h2>
+                <p>Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
+                <p>So einfach funktioniert es: Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. Viel Spaß beim Entdecken!</p>
+            </div>
+        </div>
+        
+        <!-- Rechts: Die zwei kleinen Bilder untereinander -->
+        <div class="right-column">
+            <img src="bild2.jpg" alt="Stickerspaß Heft-Details" class="content-img">
+            <img src="bild3.jpg" alt="Kinder lesen im Heft" class="content-img">
+        </div>
+
+    </div>
+
+    <!-- Wellen-Footer -->
     <footer>
-        LOTTE SCHELLHAMMER &copy; 2026 &bull; IMPRESSUM & RECHTLICHES
+        <div class="footer-text">Lotte Schellhammer &copy; 2026 &bull; Impressum & Rechtliches</div>
     </footer>
 
 </body>
 </html>
+
