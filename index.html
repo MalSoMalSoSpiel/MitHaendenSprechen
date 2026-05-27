@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Deine Adobe Fonts -->
+    <!-- Deine funktionierenden Adobe Fonts -->
     <link rel="stylesheet" href="https://typekit.net">
     <title>Mit den Händen sprechen</title>
     <style>
         :root {
-            --bg-white: #ffffff; /* Hauptbestandteil jetzt rein weiß */
+            --bg-white: #ffffff;
             --text-dark: #2b2b2b;
             --font-headings: 'crayonize', sans-serif;
             --font-body: 'neulis-sans', sans-serif;
@@ -26,15 +26,15 @@
             min-height: 100vh;
         }
 
-        /* 1. Header mit Wellen-Banner UND dem Konfetti nur in diesem Bereich */
+        /* 1. Header mit bildschirmbreiter Konfetti-Wolke */
         header {
             width: 100%;
-            height: 220px; /* Leicht erhöht für das Logo und Konfetti */
-            /* Lädt dein header.png und legt das konfetti.png nur dahinter */
+            height: 240px; /* Leicht erhöht für das Konfetti über/unter dem Logo */
+            /* Lädt dein header.png vorne und das konfetti.png als bildschirmbreites Band dahinter */
             background-image: url('header.png'), url('konfetti.png');
             background-position: center bottom, center center;
-            background-size: 100% auto, 400px auto; /* Konfetti-Größe hier anpassbar */
-            background-repeat: no-repeat, no-repeat; /* Konfetti wiederholt sich NICHT */
+            background-size: 100% auto, 100% 160px; /* Konfetti-Band geht über die ganze Breite, ist 160px hoch */
+            background-repeat: no-repeat, repeat-x; /* Konfetti wiederholt sich nur von links nach rechts */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -48,7 +48,7 @@
             font-family: var(--font-headings);
             font-size: 24px;
             letter-spacing: 1px;
-            margin-top: -10px;
+            margin-top: 5px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
             z-index: 2;
         }
@@ -57,7 +57,10 @@
         .logo-box {
             max-width: 180px;
             margin-bottom: 5px;
-            z-index: 2;
+            z-index: 3;
+            background-color: var(--bg-white); /* Spart das Logo beim Konfetti aus */
+            padding: 10px 15px;
+            border-radius: 20px; /* Schöne abgerundete Aussparung um das Logo */
         }
         .logo-box img {
             width: 100%;
@@ -65,7 +68,7 @@
             display: block;
         }
 
-        /* Haupt-Inhalt auf weißem Grund */
+        /* Haupt-Inhalt */
         .container {
             max-width: 650px;
             width: 90%;
@@ -160,7 +163,7 @@
 <body>
 
     <header>
-        <!-- Platzhalter für dein Logo – das Konfetti liegt im Hintergrund genau hierhinter -->
+        <!-- Logo mit integrierter weißer Aussparung gegen das Konfetti -->
         <div class="logo-box">
             <img src="logo.png" alt="Logo">
         </div>
@@ -171,12 +174,10 @@
 
         <!-- Das Bilder-Layout exakt wie gezeichnet -->
         <div class="gallery-grid">
-            <!-- Große rosa Box links -->
             <div class="img-box box-large-pink">
                 <img src="bild1.jpg" alt="Projekt Vorschau 1">
             </div>
             
-            <!-- Die beiden kleineren gelben Boxen rechts untereinander -->
             <div class="right-column">
                 <div class="img-box box-small-orange">
                     <img src="bild2.jpg" alt="Projekt Vorschau 2">
@@ -190,7 +191,7 @@
         <!-- Der kurze, knackige Erklärtext -->
         <div class="content-section">
             <h2>Schön, dass du da bist! 🌟</h2>
-            <p>Dieses Projekt ist dein bunter Einstieg in eine world, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
+            <p>Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
             <p><strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. Viel Spaß beim Entdecken!</p>
         </div>
 
@@ -202,5 +203,3 @@
 
 </body>
 </html>
-
-
