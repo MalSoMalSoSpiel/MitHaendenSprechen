@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
-    <title>Mit den Händen sprechen - Gebärdensprache kennenlernen</title>
+    <!-- Deine Adobe Fonts -->
+    <link rel="stylesheet" href="https://typekit.net">
+    <title>Mit den Händen sprechen</title>
     <style>
-
-
         :root {
-            --bg-beige: #f3e6cd;     /* Cremiger Grundton */
-            --ocean-blue: #1c75bc;   /* Wellen-Farbe */
-            --sticker-pink: #f28ca3; /* Rosa Box-Rahmen */
-            --sticker-green: #2daa6c;/* Grüner Box-Rahmen */
+            --bg-beige: #f3e6cd;
             --text-dark: #2b2b2b;
-            
-            /* Fallback-Schriften, falls die Webfonts noch laden */
-             --font-headings: 'crayonize', sans-serif;
+            --font-headings: 'crayonize', sans-serif;
             --font-body: 'neulis-sans', sans-serif;
         }
 
@@ -25,10 +19,10 @@
             padding: 0;
             font-family: var(--font-body);
             background-color: var(--bg-beige);
-            /* Hier wird Ihr eigenes Konfetti-PNG als Hintergrund geladen */
+            /* Dein Konfetti-Hintergrundbild (wird gekachelt) */
             background-image: url('konfetti.png'); 
             background-repeat: repeat;
-            background-size: 300px auto; /* Größe des Musters nach Wunsch anpassen */
+            background-size: 350px auto;
             color: var(--text-dark);
             display: flex;
             flex-direction: column;
@@ -36,163 +30,176 @@
             min-height: 100vh;
         }
 
-        /* Header mit echter Wellenlinie via SVG */
+        /* 1. Dein Header als PNG-Hintergrund */
         header {
             width: 100%;
-            background-color: var(--ocean-blue);
+            height: 180px; /* Höhe an dein PNG anpassen */
+            background-image: url('header.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            padding: 20px 0 40px 0;
-            text-align: center;
-        }
-        header::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 25px;
-            /* Nahtlose Wellenlinie im Shiny-Happy-Stil */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z' fill='%23f3e6cd'/%3E%3C/svg%3E");
-            background-size: 100% 25px;
         }
 
-        /* Zentrierter Bereich für Ihr Logo */
-        .logo-container {
-            max-width: 280px;
-            margin: 0 auto;
-            padding: 10px;
+        /* Weißer Text im Header mit Crayonize */
+        .header-title {
+            color: white;
+            font-family: var(--font-headings);
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-top: -20px; /* Schiebt Text leicht hoch, weg von der unteren Welle */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
-        .logo-container img {
+
+        /* Logo-Platzhalter im Header zentriert */
+        .logo-box {
+            max-width: 180px;
+            margin-bottom: 5px;
+        }
+        .logo-box img {
             width: 100%;
             height: auto;
             display: block;
         }
 
+        /* Haupt-Inhalt */
         .container {
-            max-width: 580px;
+            max-width: 650px;
             width: 90%;
             padding: 40px 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             box-sizing: border-box;
         }
 
-        /* Überschriften im verspielten Crayonize-Stil */
-        h1, h2, h3 {
-            font-family: var(--font-headings);
-            font-weight: bold;
-        }
-
-        .main-title {
-            font-size: 42px;
-            line-height: 1.1;
-            margin-bottom: 35px;
-            color: #de6b48;
-        }
-        .main-title span {
-            color: var(--sticker-green);
-            font-size: 54px;
-            display: block;
-            margin: 5px 0;
-        }
-
-        /* Buch-Vorschau (Patito-Style Box) */
-        .preview-box {
-            border: 6px solid var(--sticker-pink);
-            border-radius: 32px;
-            padding: 12px;
-            background: white;
-            margin-bottom: 45px;
-            box-shadow: 0 12px 0 #db6f87;
-            transform: rotate(-1deg);
-        }
-        .preview-box img {
-            image:url('vorschau.png')
+        /* 2. Das bunte Bilder-Raster aus deinem Mockup */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr; /* Links breiter als rechts */
+            gap: 15px;
             width: 100%;
-            border-radius: 22px;
+            margin-bottom: 40px;
+        }
+
+        /* Die rechte Spalte für die zwei kleinen Bilder untereinander */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Styling der Rahmen im Patito-3D-Stil */
+        .img-box {
+            background: white;
+            border-radius: 24px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
             display: block;
         }
 
-        /* Informationstexte im klaren Neulis-Sans-Stil */
-        .info-card {
-            border: 6px solid var(--sticker-green);
-            border-radius: 32px;
-            padding: 35px 30px;
-            background-color: #fdfbf7;
-            text-align: left;
-            box-shadow: 0 12px 0 #208754;
-            margin-bottom: 50px;
-            transform: rotate(1deg);
+        /* Die exakten Farben aus deiner Zeichnung */
+        .box-large-pink {
+            border: 6px solid #f28ca3;
+            box-shadow: 0 8px 0 #db6f87;
         }
-        .info-card h2 {
-            margin-top: 0;
-            color: var(--sticker-green);
-            font-size: 26px;
-            border-bottom: 3px dashed #ceeada;
-            padding-bottom: 12px;
-        }
-        .info-card p {
-            font-size: 16.5px;
-            line-height: 1.65;
-            color: #3d3d3d;
+        .box-small-orange {
+            border: 6px solid #e9a34b;
+            box-shadow: 0 8px 0 #cb862f;
         }
 
-        /* Footer mit Wellenlinie oben drüber */
+        /* 3. Text-Bereich unten */
+        .content-section {
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .content-section h2 {
+            font-family: var(--font-headings);
+            color: #de6b48;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* 4. Dein Footer als PNG-Hintergrund */
         footer {
             width: 100%;
-            background-color: var(--ocean-blue);
-            position: relative;
-            padding: 60px 0 30px 0;
+            height: 160px; /* Höhe an dein PNG anpassen */
+            background-image: url('footer.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
             margin-top: auto;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
             font-size: 14px;
             font-weight: bold;
-            letter-spacing: 1px;
-        }
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 25px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z' fill='%231c75bc'/%3E%3C/svg%3E");
-            background-size: 100% 25px;
-            transform: rotate(180deg); /* Dreht die Welle für den unteren Abschluss um */
+            padding-top: 30px; /* Drückt Text unter die obere Welle */
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <!-- Platzhalter für Ihr zentriertes Logo. Datei einfach "logo.png" nennen und im selben Ordner hochladen -->
-            <img src="logo.png" alt="Gebärdensprache Kennenlernen Logo">
+        <!-- Platzhalter für dein Logo -->
+        <div class="logo-box">
+            <img src="logo.png" alt="Logo">
         </div>
+        <div class="header-title">Gebärden entdecken – Stickersammelspaß</div>
     </header>
 
     <div class="container">
-        <h1 class="main-title">
-            Mit den <br><span>Händen</span><br> sprechen
-        </h1>
 
-        <!-- Buchcover-Vorschau -->
-        <div class="preview-box">
-            <img src="heft-cover.jpg" alt="Mit den Händen sprechen - Stickerheft Cover">
+        <!-- Das Bilder-Layout exakt wie gezeichnet -->
+        <div class="gallery-grid">
+            <!-- Große rosa Box links -->
+            <div class="img-box box-large-pink">
+                <img src="bild1.jpg" alt="Projekt Vorschau 1">
+            </div>
+            
+            <!-- Die beiden kleineren gelben Boxen rechts untereinander -->
+            <div class="right-column">
+                <div class="img-box box-small-orange">
+                    <img src="bild2.jpg" alt="Projekt Vorschau 2">
+                </div>
+                <div class="img-box box-small-orange">
+                    <img src="bild3.jpg" alt="Projekt Vorschau 3">
+                </div>
+            </div>
         </div>
 
-        <!-- Inhaltsbox mit Originaltext aus Ihrem Vorwort -->
-        <div class="info-card">
-            <h2>Schön, dass du da bist!</h2>
-            <p>Ich freue mich riesig, dass du dieses Stickerheft in den Händen hältst. Viele Menschen wissen nur wenig über Gebärdensprache und die Gehörlosen-Gemeinschaft. Oft gibt es im Alltag nur wenige Berührungspunkte – und deshalb entstehen schnell Missverständnisse.</p>
-            <p>Dabei verbindet uns Kommunikation. Wenn wir lernen, auf unterschiedliche Arten miteinander zu sprechen, können wir Barrieren abbauen und uns besser verstehen. Dieses Heft ist kein Lehrbuch, sondern ein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“.</p>
-            <p><strong>Wie funktioniert das hier?</strong> Du sammelst Sticker und lernst dabei Schritt für Schritt neue Gebärden. Scanne einfach die QR-Codes bei den Stickern im Heft, um dir das Video der Gebärde anzuschauen und sie so genau wie möglich nachzumachen!</p>
+        <!-- Der kurze, knackige Erklärtext -->
+        <div class="content-section">
+            <h2>Schön, dass du da bist! 🌟</h2>
+            <p>Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
+            <p><strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. Viel Spaß beim Entdecken!</p>
         </div>
+
     </div>
 
     <footer>
-        LOTTE SCHELLHAMMER &copy; 2026 &bull; GEBÄRDENSPRACHE ENTDECKEN &bull; IMPRESSUM
+        LOTTE SCHELLHAMMER &copy; 2026 &bull; IMPRESSUM & RECHTLICHES
     </footer>
 
 </body>
 </html>
+
