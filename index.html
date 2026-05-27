@@ -5,15 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mit den Händen sprechen - Gebärden entdecken</title>
     
-    <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
     
-    <!-- Verknüpfung zur CSS-Datei (Achte darauf, dass die Datei exakt "style.css" heißt!) -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Reset & Basis-Styling --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'neulis-sans', sans-serif;
+            font-weight: 400;
+            color: #2b2b2b;
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* --- Header mit Logo-Überlagerung --- */
+        .site-header {
+            position: relative;
+            width: 100%;
+        }
+
+        .header-bg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .logo-container {
+            position: absolute;
+            bottom: -15%; /* Schiebt das Logo halb aus dem Wellen-Header heraus */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 450px;
+            z-index: 5;
+        }
+
+        .site-logo {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Content & Text-Gestaltung --- */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 24px 40px 24px; /* Mehr Platz nach oben wegen dem Logo */
+        }
+
+        .intro-section {
+            margin-bottom: 60px;
+        }
+
+        .main-title {
+            font-family: 'crayonize', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #2b2b2b;
+            text-transform: uppercase;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .instruction-text {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+        }
+
+        .wishes-text {
+            font-family: 'crayonize', sans-serif;
+            font-size: 1.8rem;
+            color: #2b2b2b;
+            margin-top: 20px;
+        }
+
+        /* --- Die farbigen Bild-Blöcke --- */
+        .gallery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* Abstand zwischen den Blöcken */
+            width: 100%;
+        }
+
+        .gallery-item {
+            width: 100%;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            max-width: 550px; /* Perfekte Breite für die Heft-Fotos */
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Schöner Schatten-Effekt */
+            border-radius: 4px;
+        }
+
+        /* Hintergrundfarben der Blöcke */
+        .bg-orange {
+            background-color: #fca822;
+        }
+
+        .bg-pink {
+            background-color: #e67da0;
+        }
+
+        .bg-brown {
+            background-color: #d1843b;
+        }
+
+        /* --- Footer & Konfetti-Zauber --- */
+        .site-footer {
+            position: relative;
+            width: 100%;
+            margin-top: 120px;
+        }
+
+        /* Das Konfetti liegt genau auf der Grenze zum Footer */
+        .confetti-overlay {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1100px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .footer-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .footer-bg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .footer-credits {
+            position: absolute;
+            bottom: 25px;
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Mobile Optimierung (Handy-Ansicht) --- */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            .wishes-text {
+                font-size: 1.4rem;
+            }
+            .intro-text, .instruction-text {
+                font-size: 1rem;
+            }
+            .gallery-item {
+                padding: 25px 10px;
+            }
+            .confetti-overlay {
+                top: -60px;
+            }
+            .logo-container {
+                max-width: 280px;
+                bottom: -10%;
+            }
+            .main-content {
+                padding-top: 60px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header-Bereich mit Logo -->
     <header class="site-header">
         <img src="header.png" alt="Header" class="header-bg">
         <div class="logo-container">
@@ -21,10 +209,8 @@
         </div>
     </header>
 
-    <!-- Hauptinhalt der Webseite -->
     <main class="main-content">
         
-        <!-- Text-Einführung -->
         <section class="intro-section">
             <h1 class="main-title">SCHÖN, DASS DU DA BIST!</h1>
             <p class="intro-text">
@@ -42,24 +228,20 @@
             <p class="wishes-text">Viel Spaß beim Entdecken!</p>
         </section>
 
-        <!-- Bilder-Galerie (Exakt wie im PDF untereinander gestapelt) -->
         <section class="gallery-section">
             
-            <!-- Orange Box mit Bild 2 -->
             <div class="gallery-item bg-orange">
                 <div class="img-wrapper">
                     <img src="bild2.jpg" alt="Sticker" class="gallery-img">
                 </div>
             </div>
 
-            <!-- Rosa Box mit Bild 1 -->
             <div class="gallery-item bg-pink">
                 <div class="img-wrapper">
                     <img src="bild1.jpg" alt="Stickerheft offen" class="gallery-img">
                 </div>
             </div>
 
-            <!-- Braun/Orange Box mit Bild 3 -->
             <div class="gallery-item bg-brown">
                 <div class="img-wrapper">
                     <img src="bild3.jpg" alt="Kinder lesen" class="gallery-img">
@@ -70,9 +252,7 @@
 
     </main>
 
-    <!-- Footer mit Konfetti -->
     <footer class="site-footer">
-        <!-- Das Konfetti, das absolut über dem Footer-Rand liegt -->
         <img src="konfetti.png" alt="Konfetti" class="confetti-overlay">
         
         <div class="footer-container">
