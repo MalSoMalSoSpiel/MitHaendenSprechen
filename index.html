@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mit den Händen sprechen – Gebärden entdecken</title>
+  <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: "acumin-pro", sans-serif;
+      color: #1a1a1a;
+    }
+
+    /* ── HEADER + KONFETTI WRAPPER ── */
+    /* The konfetti image overlaps the header from the top */
+    .header-wrapper {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+    }
+
+    .site-header img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Konfetti sits absolutely on top of the header, full width */
+    .konfetti-over-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .konfetti-over-header img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── HERO / LOGO with confetti overlay ── */
+    .hero {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 56px 24px 48px;
+      background-color: #ffffff;
+      /* extra space on sides so confetti has room */
+      overflow: visible;
+    }
+
+    .hero img.logo {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      width: 75%;
+      height: auto;
+    }
+
+    /* Konfetti corners around the logo – one element per corner */
+    .konfetti-logo {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 2;
+      /* We reuse the same konfetti.png and show only its edges via clip/position */
+    }
+
+    /* We use four absolutely placed copies clipped to each quadrant */
+    .konfetti-logo img {
+      position: absolute;
+      /* scale it so the decorative shapes sit near the logo edges */
+      width: 120%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+
+    /* ── IMAGES GRID ── */
+    .images-section {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+
+    .img-left {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+
+    .img-top-right {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    .img-bottom-right {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .images-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+    }
+
+    /* ── TEXT SECTION ── */
+    .text-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      text-align: center;
+    }
+
+    .text-section h2 {
+      font-family: "acumin-pro-extra-condensed", "acumin-pro", sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+
+    .text-section p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.75;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .text-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      width: 100%;
+      line-height: 0;
+    }
+
+    .site-footer img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .images-section {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .img-left,
+      .img-top-right,
+      .img-bottom-right {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .hero img.logo {
+        width: 88%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER with konfetti layered on top -->
+  <div class="header-wrapper">
+    <header class="site-header">
+      <img src="header.png" alt="Header – Mit den Händen sprechen" />
+    </header>
+
+    <!-- Konfetti overlaps the header (one single instance on the whole page) -->
+    <div class="konfetti-over-header">
+      <img src="konfetti.png" alt="" role="presentation" />
+    </div>
+  </div>
+
+  <!-- LOGO / HERO – konfetti peeks in from the sides -->
+  <section class="hero">
+    <!-- decorative konfetti layer around the logo -->
+    <div class="konfetti-logo" aria-hidden="true">
+      <img src="konfetti.png" alt="" />
+    </div>
+    <img class="logo" src="logo.png" alt="Mit den Händen sprechen – Logo" />
+  </section>
+
+  <!-- THREE IMAGES -->
+  <section class="images-section">
+    <div class="img-left">
+      <img src="bild1.jpg" alt="Heft aufgeschlagen mit Stickern" />
+    </div>
+    <div class="img-top-right">
+      <img src="bild2.jpg" alt="Heft Stapel von vorne" />
+    </div>
+    <div class="img-bottom-right">
+      <img src="bild3.jpg" alt="Kinder schauen gemeinsam ins Heft" />
+    </div>
+  </section>
+
+  <!-- TEXT CONTENT -->
+  <section class="text-section">
+    <h2>Schön, dass du da bist!</h2>
+    <p>
+      Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört" und mit den Händen „spricht". Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.
+    </p>
+    <p>
+      So einfach funktioniert es: Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. Viel Spaß beim Entdecken!
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <img src="footer.png" alt="Footer – Lotte Schellhammer © 2026 · Impressum & Rechtliches" />
+  </footer>
+
+</body>
+</html>
