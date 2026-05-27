@@ -3,26 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mein Videoprojekt</title>
+    <title>Mit den Händen sprechen - Gebärdensprache kennenlernen</title>
     <style>
-        body { font-family: sans-serif; text-align: center; background: #f0f0f0; padding: 20px; }
-        .video-container { max-width: 400px; margin: 20px auto; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        video { width: 100%; border-radius: 4px; }
+        /* Grunddesign im Patito-Stil */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Spielerische Schriftart */
+            background-color: #f7ebd3; /* Das sanfte Beige aus Ihrem Bild */
+            color: #2b2b2b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Top-Banner */
+        .top-banner {
+            width: 100%;
+            background-color: #2d82b7; /* Blaues Banner oben */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Hauptinhalt zentrieren */
+        .container {
+            max-width: 600px;
+            width: 90%;
+            padding: 40px 0;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Große, bunte Überschrift */
+        h1 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: #de6b48; /* Ein warmer Ton für den Titel */
+        }
+        h1 span {
+            display: block;
+            font-size: 42px;
+            color: #2daa6c; /* Grüner Akzent für "Händen" */
+        }
+
+        /* Rosa Box für das Hauptbild */
+        .image-box {
+            border: 6px solid #f28ca3; /* Das auffällige Rosa aus dem Mockup */
+            border-radius: 24px;
+            padding: 10px;
+            background: white;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 0 #e2758e; /* Verspielter 3D-Schatten */
+        }
+        .image-box img {
+            width: 100%;
+            border-radius: 14px;
+            display: block;
+        }
+
+        /* Grüne Box für den Erklärtext */
+        .text-box {
+            border: 6px solid #2daa6c; /* Das kräftige Grün aus dem Mockup */
+            border-radius: 24px;
+            padding: 30px;
+            background-color: #fdfbf7;
+            text-align: left;
+            box-shadow: 0 8px 0 #218452;
+            margin-bottom: 60px;
+        }
+        .text-box h2 {
+            margin-top: 0;
+            color: #2daa6c;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+        .text-box p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Footer ganz unten */
+        footer {
+            width: 100%;
+            background-color: #2d82b7; /* Blaues Banner unten */
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: auto;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
-    <h1>Willkommen bei meinem Projekt</h1>
-    <p>Hier sind meine Handyvideos:</p>
 
-    <!-- Erstes Video -->
-    <div class="video-container">
-        <h3>Video Titel 1</h3>
-        <video controls playsinline>
-            <source src="https://res.cloudinary.com/de3kjqa5o/video/upload/q_auto/f_auto/v1779868818/IMG_1185_nvcaet.mov" type="video/quicktime">
-            <source src="https://res.cloudinary.com/de3kjqa5o/video/upload/q_auto/f_auto/v1779868818/IMG_1185_nvcaet.mov" type="video/mp4">
-            Ihr Browser unterstützt dieses Video nicht.
-        </video>
+    <div class="top-banner">
+        GEBÄRDENSPRACHE KENNENLERNEN
     </div>
+
+    <div class="container">
+        <h1>Mit den <br><span>Händen</span><br> sprechen</h1>
+
+        <!-- Bild-Box (Ersetzen Sie das Bild später durch Ihr echtes Heft-Foto) -->
+        <div class="image-box">
+            <img src="https://unsplash.com" alt="Stickerheft Vorschau">
+        </div>
+
+        <!-- Erklärtext-Box -->
+        <div class="text-box">
+            <h2>Erklärtext Projekt Stickerheft</h2>
+            <p>Hier kommt Ihre Beschreibung rein. Erklären Sie kurz und herzlich, worum es bei Ihrem Projekt geht, wie das Stickerheft funktioniert und wie die Kinder oder Eltern die QR-Codes nutzen können.</p>
+        </div>
+    </div>
+
+    <footer>
+        FOOTER INFO & IMPRESSUM
+    </footer>
+
 </body>
 </html>
+
+
 
