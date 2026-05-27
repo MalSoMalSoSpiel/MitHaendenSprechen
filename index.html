@@ -1,291 +1,99 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mit den Händen sprechen - Gebärden entdecken</title>
-    
-    <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
-    
-    <style>
-        /* --- Reset & Basis-Styling --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'neulis-sans', sans-serif;
-            font-weight: 400;
-            color: #2b2b2b;
-            background-color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            text-align: center;
-        }
+<title>Gebärden entdecken</title>
 
-        /* --- Header mit weißem Text --- */
-        .site-header {
-            position: relative;
-            width: 100%;
-        }
+<link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
+<link rel="stylesheet" href="style.css">
 
-        .header-bg {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .header-text {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ffffff;
-            font-family: 'neulis-sans', sans-serif;
-            font-size: 1.3rem;
-            width: 90%;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /* --- Konfetti direkt unter dem Header --- */
-        .confetti-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 15px auto 0 auto;
-            display: flex;
-            justify-content: center;
-        }
-
-        .confetti-img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- Hauptinhalt (Weißer Hintergrund) --- */
-        .main-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px 24px 80px 24px;
-        }
-
-        /* Das Logo sitzt oben frei auf dem weißen Hintergrund */
-        .logo-section {
-            margin-bottom: 60px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .site-logo {
-            width: 90%;
-            max-width: 380px;
-            height: auto;
-            display: block;
-        }
-
-        /* --- Asymmetrische Bilder-Galerie --- */
-        .gallery-section {
-            display: flex;
-            flex-direction: column;
-            gap: 50px; /* Abstand zwischen den versetzten Reihen */
-            width: 100%;
-            margin-bottom: 80px;
-        }
-
-        .gallery-row {
-            display: flex;
-            width: 100%;
-        }
-
-        /* Bild 2: Links ausgerichtet */
-        .row-left {
-            justify-content: flex-start;
-        }
-
-        /* Bild 1: Rechts ausgerichtet */
-        .row-right {
-            justify-content: flex-end;
-        }
-
-        /* Bild 3: Mittig / leicht versetzt ausgerichtet */
-        .row-center {
-            justify-content: center;
-        }
-
-        .gallery-item {
-            width: 100%;
-            max-width: 480px; /* Schön groß auf Desktop */
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-        }
-
-        /* --- Text-Einführung JETZT UNTER DEN FOTOS --- */
-        .intro-section {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .main-title {
-            font-family: 'crayonize', sans-serif;
-            font-weight: 700;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: #2b2b2b;
-            text-transform: uppercase;
-        }
-
-        .intro-text {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-        }
-
-        .instruction-text {
-            font-size: 1.15rem;
-            margin-bottom: 25px;
-        }
-
-        .wishes-text {
-            font-family: 'crayonize', sans-serif;
-            font-size: 2rem;
-            color: #2b2b2b;
-            margin-top: 30px;
-        }
-
-        /* --- Footer --- */
-        .site-footer {
-            position: relative;
-            width: 100%;
-        }
-
-        .footer-bg {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .footer-credits {
-            position: absolute;
-            bottom: 30%;
-            width: 100%;
-            text-align: center;
-            color: #ffffff;
-            font-family: 'neulis-sans', sans-serif;
-            font-weight: bold;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* --- Mobile Anpassungen (Responsive für Smartphones) --- */
-        @media (max-width: 768px) {
-            .header-text {
-                font-size: 0.8rem;
-                top: 35%;
-            }
-
-            .main-title {
-                font-size: 1.9rem;
-            }
-
-            .wishes-text {
-                font-size: 1.5rem;
-            }
-
-            .intro-text, .instruction-text {
-                font-size: 1rem;
-            }
-
-            /* Auf dem Handy werden die Bilder zentriert untereinander gestapelt */
-            .gallery-row {
-                justify-content: center;
-            }
-
-            .gallery-item {
-                max-width: 95%;
-            }
-
-            .footer-credits {
-                font-size: 0.65rem;
-                bottom: 20%;
-            }
-        }
-    </style>
 </head>
+
 <body>
 
-    <header class="site-header">
-        <img src="header.png" alt="Header" class="header-bg">
-        <div class="header-text">
-            GEBÄRDEN ENTDECKEN MIT STICKERSAMMELSPASS
-        </div>
-    </header>
+<header class="hero">
 
-    <div class="confetti-container">
-        <img src="konfetti.png" alt="Konfetti Dekoration" class="confetti-img">
+    <img src="assets/header.png" class="header-image">
+
+    <div class="logo-container">
+        <img src="assets/logo.png" class="logo">
     </div>
 
-    <main class="main-content">
-        
-        <div class="logo-section">
-            <img src="logo.png" alt="Mit den Händen sprechen" class="site-logo">
+</header>
+
+
+<main class="content">
+
+    <section class="intro">
+
+        <h1>Gebärden entdecken mit Stickersammelspaß</h1>
+
+        <h2>Schön, dass du da bist!</h2>
+
+        <p>
+            Dieses Projekt ist dein bunter Einstieg in eine Welt,
+            in der man mit den Augen „hört“ und mit den Händen
+            „spricht“.
+        </p>
+
+        <p>
+            Wenn wir lernen, auf unterschiedliche Arten
+            miteinander zu kommunizieren, bauen wir Barrieren ab.
+        </p>
+
+        <p>
+            So einfach funktioniert es:
+        </p>
+
+        <p>
+            Scanne mit deinem Smartphone die QR-Codes direkt
+            neben den Stickern im Heft. Dadurch öffnet sich sofort
+            das passende Video.
+        </p>
+
+        <p>
+            Schau dir die Gebärde genau an und mach sie einfach
+            nach. Viel Spaß beim Entdecken!
+        </p>
+
+    </section>
+
+
+    <section class="gallery">
+
+        <div class="image-card big">
+            <img src="assets/bild1.jpg">
         </div>
 
-        <section class="gallery-section">
-            
-            <div class="gallery-row row-left">
-                <div class="gallery-item">
-                    <img src="bild2.jpg" alt="Sticker Päckchen" class="gallery-img">
-                </div>
-            </div>
-
-            <div class="gallery-row row-right">
-                <div class="gallery-item">
-                    <img src="bild1.jpg" alt="Stickerheft Innenseite" class="gallery-img">
-                </div>
-            </div>
-
-            <div class="gallery-row row-center">
-                <div class="gallery-item">
-                    <img src="bild3.jpg" alt="Kinder lesen im Heft" class="gallery-img">
-                </div>
-            </div>
-
-        </section>
-
-        <section class="intro-section">
-            <h1 class="main-title">SCHÖN, DASS DU DA BIST!</h1>
-            <p class="intro-text">
-                Dieses Projekt ist dein bunter Einstieg in eine Welt, in der
-                man mit den Augen „hört“ und mit den Händen „spricht“.
-                Wenn wir lernen, auf unterschiedliche Arten miteinander
-                zu kommunizieren, bauen wir Barrieren ab.
-            </p>
-            <p class="instruction-text">
-                <strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone
-                die QR-Codes direkt neben den Stickern im Heft. Dadurch
-                öffnet sich sofort das passende Video. Schau dir die Gebär-
-                de genau an und mach sie einfach nach.
-            </p>
-            <p class="wishes-text">Viel Spaß beim Entdecken!</p>
-        </section>
-
-    </main>
-
-    <footer class="site-footer">
-        <img src="footer.png" alt="Footer" class="footer-bg">
-        <div class="footer-credits">
-            LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES
+        <div class="image-card">
+            <img src="assets/bild2.jpg">
         </div>
-    </footer>
+
+        <div class="image-card">
+            <img src="assets/bild3.jpg">
+        </div>
+
+    </section>
+
+</main>
+
+
+<section class="confetti-container">
+    <img src="assets/konfetti.png" class="confetti">
+</section>
+
+
+<footer>
+
+    <img src="assets/footer.png" class="footer-image">
+
+    <div class="footer-text">
+        LOTTE SCHELLHAMMER © 2026 • IMPRESSUM & RECHTLICHES
+    </div>
+
+</footer>
 
 </body>
 </html>
