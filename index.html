@@ -4,56 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mit den Händen sprechen - Gebärden entdecken</title>
-       <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
+    
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
+    
+    <!-- Verknüpfung zur CSS-Datei (Achte darauf, dass die Datei exakt "style.css" heißt!) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Header-Bereich mit Logo -->
     <header class="site-header">
-        <img src="header.png" alt="Header Hintergrund" class="header-bg">
+        <img src="header.png" alt="Header" class="header-bg">
         <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="site-logo">
+            <img src="logo.png" alt="Mit den Händen sprechen Logo" class="site-logo">
         </div>
     </header>
 
+    <!-- Hauptinhalt der Webseite -->
     <main class="main-content">
         
+        <!-- Text-Einführung -->
         <section class="intro-section">
-            <h1 class="main-title">SCHÖN, DASS DU DA BIST! [cite: 8]</h1>
+            <h1 class="main-title">SCHÖN, DASS DU DA BIST!</h1>
             <p class="intro-text">
-                Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“. [cite: 9] 
-                Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab. [cite: 10]
+                Dieses Projekt ist dein bunter Einstieg in eine Welt, in der
+                man mit den Augen „hört“ und mit den Händen „spricht“.
+                Wenn wir lernen, auf unterschiedliche Arten miteinander
+                zu kommunizieren, bauen wir Barrieren ab.
             </p>
             <p class="instruction-text">
-                <strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. [cite: 11] 
-                Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. [cite: 12]
+                <strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone
+                die QR-Codes direkt neben den Stickern im Heft. Dadurch
+                öffnet sich sofort das passende Video. Schau dir die Gebär-
+                de genau an und mach sie einfach nach.
             </p>
-            <p class="wishes-text">Viel Spaß beim Entdecken! [cite: 13]</p>
+            <p class="wishes-text">Viel Spaß beim Entdecken!</p>
         </section>
 
+        <!-- Bilder-Galerie (Exakt wie im PDF untereinander gestapelt) -->
         <section class="gallery-section">
-            <div class="gallery-item bg-orange-light">
-                <img src="bild2.jpg" alt="Sticker-Päckchen Illustration" class="gallery-img">
+            
+            <!-- Orange Box mit Bild 2 -->
+            <div class="gallery-item bg-orange">
+                <div class="img-wrapper">
+                    <img src="bild2.jpg" alt="Sticker" class="gallery-img">
+                </div>
             </div>
 
+            <!-- Rosa Box mit Bild 1 -->
             <div class="gallery-item bg-pink">
-                <img src="bild1.jpg" alt="Geöffnetes Stickerheft mit QR-Codes" class="gallery-img">
+                <div class="img-wrapper">
+                    <img src="bild1.jpg" alt="Stickerheft offen" class="gallery-img">
+                </div>
             </div>
 
-            <div class="gallery-item bg-orange-dark">
-                <img src="bild3.jpg" alt="Kinder lesen im Stickerheft" class="gallery-img">
+            <!-- Braun/Orange Box mit Bild 3 -->
+            <div class="gallery-item bg-brown">
+                <div class="img-wrapper">
+                    <img src="bild3.jpg" alt="Kinder lesen" class="gallery-img">
+                </div>
             </div>
+
         </section>
 
     </main>
 
+    <!-- Footer mit Konfetti -->
     <footer class="site-footer">
-        <img src="konfetti.png" alt="Konfetti Dekoration" class="confetti-overlay">
+        <!-- Das Konfetti, das absolut über dem Footer-Rand liegt -->
+        <img src="konfetti.png" alt="Konfetti" class="confetti-overlay">
         
-        <div class="footer-content">
-            <img src="footer.png" alt="Footer Hintergrund" class="footer-bg">
+        <div class="footer-container">
+            <img src="footer.png" alt="Footer" class="footer-bg">
             <div class="footer-credits">
-                <p>&copy; LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES [cite: 14]</p>
+                <p>LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES</p>
             </div>
         </div>
     </footer>
