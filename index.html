@@ -8,7 +8,7 @@
     <title>Mit den Händen sprechen</title>
     <style>
         :root {
-            --bg-beige: #f3e6cd;
+            --bg-white: #ffffff; /* Hauptbestandteil jetzt rein weiß */
             --text-dark: #2b2b2b;
             --font-headings: 'crayonize', sans-serif;
             --font-body: 'neulis-sans', sans-serif;
@@ -18,11 +18,7 @@
             margin: 0;
             padding: 0;
             font-family: var(--font-body);
-            background-color: var(--bg-beige);
-            /* Dein Konfetti-Hintergrundbild (wird gekachelt) */
-            background-image: url('konfetti.png'); 
-            background-repeat: repeat;
-            background-size: 350px auto;
+            background-color: var(--bg-white);
             color: var(--text-dark);
             display: flex;
             flex-direction: column;
@@ -30,13 +26,15 @@
             min-height: 100vh;
         }
 
-        /* 1. Dein Header als PNG-Hintergrund */
+        /* 1. Header mit Wellen-Banner UND dem Konfetti nur in diesem Bereich */
         header {
             width: 100%;
-            height: 180px; /* Höhe an dein PNG anpassen */
-            background-image: url('header.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
+            height: 220px; /* Leicht erhöht für das Logo und Konfetti */
+            /* Lädt dein header.png und legt das konfetti.png nur dahinter */
+            background-image: url('header.png'), url('konfetti.png');
+            background-position: center bottom, center center;
+            background-size: 100% auto, 400px auto; /* Konfetti-Größe hier anpassbar */
+            background-repeat: no-repeat, no-repeat; /* Konfetti wiederholt sich NICHT */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -50,14 +48,16 @@
             font-family: var(--font-headings);
             font-size: 24px;
             letter-spacing: 1px;
-            margin-top: -20px; /* Schiebt Text leicht hoch, weg von der unteren Welle */
+            margin-top: -10px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            z-index: 2;
         }
 
         /* Logo-Platzhalter im Header zentriert */
         .logo-box {
             max-width: 180px;
             margin-bottom: 5px;
+            z-index: 2;
         }
         .logo-box img {
             width: 100%;
@@ -65,7 +65,7 @@
             display: block;
         }
 
-        /* Haupt-Inhalt */
+        /* Haupt-Inhalt auf weißem Grund */
         .container {
             max-width: 650px;
             width: 90%;
@@ -74,18 +74,18 @@
             flex-direction: column;
             align-items: center;
             box-sizing: border-box;
+            background-color: var(--bg-white);
         }
 
         /* 2. Das bunte Bilder-Raster aus deinem Mockup */
         .gallery-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr; /* Links breiter als rechts */
+            grid-template-columns: 1.4fr 1fr;
             gap: 15px;
             width: 100%;
             margin-bottom: 40px;
         }
 
-        /* Die rechte Spalte für die zwei kleinen Bilder untereinander */
         .right-column {
             display: flex;
             flex-direction: column;
@@ -141,7 +141,7 @@
         /* 4. Dein Footer als PNG-Hintergrund */
         footer {
             width: 100%;
-            height: 160px; /* Höhe an dein PNG anpassen */
+            height: 160px;
             background-image: url('footer.png');
             background-size: 100% 100%;
             background-repeat: no-repeat;
@@ -152,7 +152,7 @@
             color: white;
             font-size: 14px;
             font-weight: bold;
-            padding-top: 30px; /* Drückt Text unter die obere Welle */
+            padding-top: 30px;
             box-sizing: border-box;
         }
     </style>
@@ -160,7 +160,7 @@
 <body>
 
     <header>
-        <!-- Platzhalter für dein Logo -->
+        <!-- Platzhalter für dein Logo – das Konfetti liegt im Hintergrund genau hierhinter -->
         <div class="logo-box">
             <img src="logo.png" alt="Logo">
         </div>
@@ -190,7 +190,7 @@
         <!-- Der kurze, knackige Erklärtext -->
         <div class="content-section">
             <h2>Schön, dass du da bist! 🌟</h2>
-            <p>Dieses Projekt ist dein bunter Einstieg in eine Welt, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
+            <p>Dieses Projekt ist dein bunter Einstieg in eine world, in der man mit den Augen „hört“ und mit den Händen „spricht“. Wenn wir lernen, auf unterschiedliche Arten miteinander zu kommunizieren, bauen wir Barrieren ab.</p>
             <p><strong>So einfach funktioniert es:</strong> Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. Schau dir die Gebärde genau an und mach sie einfach nach. Viel Spaß beim Entdecken!</p>
         </div>
 
@@ -202,4 +202,5 @@
 
 </body>
 </html>
+
 
