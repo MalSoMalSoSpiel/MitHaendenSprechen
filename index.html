@@ -25,7 +25,7 @@
             text-align: center;
         }
 
-        /* --- Header mit Logo-Überlagerung --- */
+        /* --- Header mit weißem Text --- */
         .site-header {
             position: relative;
             width: 100%;
@@ -37,31 +37,102 @@
             display: block;
         }
 
-        .logo-container {
+        .header-text {
             position: absolute;
-            bottom: -15%; /* Schiebt das Logo halb aus dem Wellen-Header heraus */
+            top: 40%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-family: 'neulis-sans', sans-serif;
+            font-size: 1.3rem;
             width: 90%;
-            max-width: 450px;
-            z-index: 5;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .site-logo {
+        /* --- Konfetti direkt unter dem Header --- */
+        .confetti-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 15px auto 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .confetti-img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* --- Content & Text-Gestaltung --- */
+        /* --- Hauptinhalt (Weißer Hintergrund) --- */
         .main-content {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 100px 24px 40px 24px; /* Mehr Platz nach oben wegen dem Logo */
+            padding: 20px 24px 80px 24px;
         }
 
-        .intro-section {
+        /* Das Logo sitzt oben frei auf dem weißen Hintergrund */
+        .logo-section {
             margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .site-logo {
+            width: 90%;
+            max-width: 380px;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Asymmetrische Bilder-Galerie --- */
+        .gallery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* Abstand zwischen den versetzten Reihen */
+            width: 100%;
+            margin-bottom: 80px;
+        }
+
+        .gallery-row {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Bild 2: Links ausgerichtet */
+        .row-left {
+            justify-content: flex-start;
+        }
+
+        /* Bild 1: Rechts ausgerichtet */
+        .row-right {
+            justify-content: flex-end;
+        }
+
+        /* Bild 3: Mittig / leicht versetzt ausgerichtet */
+        .row-center {
+            justify-content: center;
+        }
+
+        .gallery-item {
+            width: 100%;
+            max-width: 480px; /* Schön groß auf Desktop */
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        /* --- Text-Einführung JETZT UNTER DEN FOTOS --- */
+        .intro-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .main-title {
@@ -76,7 +147,6 @@
         .intro-text {
             font-size: 1.25rem;
             margin-bottom: 20px;
-            font-weight: 400;
         }
 
         .instruction-text {
@@ -86,73 +156,13 @@
 
         .wishes-text {
             font-family: 'crayonize', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #2b2b2b;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
-        /* --- Die farbigen Bild-Blöcke --- */
-        .gallery-section {
-            display: flex;
-            flex-direction: column;
-            gap: 50px; /* Abstand zwischen den Blöcken */
-            width: 100%;
-        }
-
-        .gallery-item {
-            width: 100%;
-            padding: 50px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .img-wrapper {
-            width: 100%;
-            max-width: 550px; /* Perfekte Breite für die Heft-Fotos */
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Schöner Schatten-Effekt */
-            border-radius: 4px;
-        }
-
-        /* Hintergrundfarben der Blöcke */
-        .bg-orange {
-            background-color: #fca822;
-        }
-
-        .bg-pink {
-            background-color: #e67da0;
-        }
-
-        .bg-brown {
-            background-color: #d1843b;
-        }
-
-        /* --- Footer & Konfetti-Zauber --- */
+        /* --- Footer --- */
         .site-footer {
-            position: relative;
-            width: 100%;
-            margin-top: 120px;
-        }
-
-        /* Das Konfetti liegt genau auf der Grenze zum Footer */
-        .confetti-overlay {
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1100px;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .footer-container {
             position: relative;
             width: 100%;
         }
@@ -165,37 +175,47 @@
 
         .footer-credits {
             position: absolute;
-            bottom: 25px;
+            bottom: 30%;
             width: 100%;
             text-align: center;
             color: #ffffff;
-            font-size: 0.85rem;
+            font-family: 'neulis-sans', sans-serif;
+            font-weight: bold;
+            font-size: 0.9rem;
             letter-spacing: 1px;
         }
 
-        /* --- Mobile Optimierung (Handy-Ansicht) --- */
+        /* --- Mobile Anpassungen (Responsive für Smartphones) --- */
         @media (max-width: 768px) {
+            .header-text {
+                font-size: 0.8rem;
+                top: 35%;
+            }
+
             .main-title {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
+
             .wishes-text {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
+
             .intro-text, .instruction-text {
                 font-size: 1rem;
             }
+
+            /* Auf dem Handy werden die Bilder zentriert untereinander gestapelt */
+            .gallery-row {
+                justify-content: center;
+            }
+
             .gallery-item {
-                padding: 25px 10px;
+                max-width: 95%;
             }
-            .confetti-overlay {
-                top: -60px;
-            }
-            .logo-container {
-                max-width: 280px;
-                bottom: -10%;
-            }
-            .main-content {
-                padding-top: 60px;
+
+            .footer-credits {
+                font-size: 0.65rem;
+                bottom: 20%;
             }
         }
     </style>
@@ -204,13 +224,43 @@
 
     <header class="site-header">
         <img src="header.png" alt="Header" class="header-bg">
-        <div class="logo-container">
-            <img src="logo.png" alt="Mit den Händen sprechen Logo" class="site-logo">
+        <div class="header-text">
+            GEBÄRDEN ENTDECKEN MIT STICKERSAMMELSPASS
         </div>
     </header>
 
+    <div class="confetti-container">
+        <img src="konfetti.png" alt="Konfetti Dekoration" class="confetti-img">
+    </div>
+
     <main class="main-content">
         
+        <div class="logo-section">
+            <img src="logo.png" alt="Mit den Händen sprechen" class="site-logo">
+        </div>
+
+        <section class="gallery-section">
+            
+            <div class="gallery-row row-left">
+                <div class="gallery-item">
+                    <img src="bild2.jpg" alt="Sticker Päckchen" class="gallery-img">
+                </div>
+            </div>
+
+            <div class="gallery-row row-right">
+                <div class="gallery-item">
+                    <img src="bild1.jpg" alt="Stickerheft Innenseite" class="gallery-img">
+                </div>
+            </div>
+
+            <div class="gallery-row row-center">
+                <div class="gallery-item">
+                    <img src="bild3.jpg" alt="Kinder lesen im Heft" class="gallery-img">
+                </div>
+            </div>
+
+        </section>
+
         <section class="intro-section">
             <h1 class="main-title">SCHÖN, DASS DU DA BIST!</h1>
             <p class="intro-text">
@@ -228,38 +278,12 @@
             <p class="wishes-text">Viel Spaß beim Entdecken!</p>
         </section>
 
-        <section class="gallery-section">
-            
-            <div class="gallery-item bg-orange">
-                <div class="img-wrapper">
-                    <img src="bild2.jpg" alt="Sticker" class="gallery-img">
-                </div>
-            </div>
-
-            <div class="gallery-item bg-pink">
-                <div class="img-wrapper">
-                    <img src="bild1.jpg" alt="Stickerheft offen" class="gallery-img">
-                </div>
-            </div>
-
-            <div class="gallery-item bg-brown">
-                <div class="img-wrapper">
-                    <img src="bild3.jpg" alt="Kinder lesen" class="gallery-img">
-                </div>
-            </div>
-
-        </section>
-
     </main>
 
     <footer class="site-footer">
-        <img src="konfetti.png" alt="Konfetti" class="confetti-overlay">
-        
-        <div class="footer-container">
-            <img src="footer.png" alt="Footer" class="footer-bg">
-            <div class="footer-credits">
-                <p>LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES</p>
-            </div>
+        <img src="footer.png" alt="Footer" class="footer-bg">
+        <div class="footer-credits">
+            LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES
         </div>
     </footer>
 
