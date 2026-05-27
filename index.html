@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
+   <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
     <title>Mit den Händen sprechen</title>
     <style>
         :root {
@@ -26,63 +26,88 @@
             min-height: 100vh;
         }
 
-        /* 1. Kleiner Text ganz oben */
+        /* 1. Oberer Bereich: Hier wird das Konfetti im Hintergrund gekachelt */
+        .top-hero-area {
+            width: 100%;
+            background-image: url('konfetti.png');
+            background-repeat: repeat-x; /* Konfetti läuft von links nach rechts */
+            background-position: top center;
+            background-size: auto 150px; /* Höhe der Konfetti-Zone, hier anpassbar */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding-top: 35px;
+        }
+
+        /* Kleiner Text ganz oben über dem Konfetti */
         .top-bar-text {
             font-family: var(--font-headings);
             font-size: 13px;
             color: #1c75bc;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-top: 35px;
             text-align: center;
+            z-index: 2;
+            margin-bottom: 15px;
         }
 
-        /* 2. Großer Logo- & Konfetti-Bereich (Deine kombinierte PNG-Grafik) */
-        .logo-section {
-            max-width: 480px; /* Leicht erhöht, damit das Konfetti links und rechts Platz hat */
-            width: 90%;
-            margin: 10px auto 35px auto;
-            text-align: center;
+        /* Das separate Wellenbild für den Header als Trenner nach unten */
+        .header-wave {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-top: -10px; /* Lässt das Konfetti leicht hinter der Welle verschwinden */
+            z-index: 1;
         }
-        .logo-section img {
+
+        /* Zentriertes Logo – liegt im Vordergrund vor dem Konfetti */
+        .logo-box {
+            max-width: 260px; /* Größe deines reinen Logos */
+            width: 70%;
+            text-align: center;
+            z-index: 3;
+            margin-bottom: 20px;
+        }
+        .logo-box img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* 3. Das asymmetrische, cleane Layout-Raster */
+        /* 2. Das asymmetrische Layout-Raster */
         .main-container {
             max-width: 850px;
             width: 90%;
             display: grid;
             grid-template-columns: 1.25fr 1fr;
             gap: 30px;
+            margin-top: 40px;
             margin-bottom: 80px;
         }
 
-        /* Linke Spalte: Großes Bild + Zentrierter Inhalt darunter */
+        /* Linke Spalte */
         .left-column {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Rechte Spalte: Die zwei kleineren Bilder untereinander */
+        /* Rechte Spalte */
         .right-column {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
 
-        /* Bilder im modern-cleanen Stil */
+        /* Clean-Bilderstil */
         .content-img {
             width: 100%;
             height: auto;
-            border-radius: 0px; 
             display: block;
         }
 
-        /* 4. Text-Bereich: Komplett zentriert unter dem linken Bild */
+        /* 3. Text-Bereich: Zentriert unter dem linken Bild */
         .text-content {
             text-align: center;
             margin-top: 40px;
@@ -105,7 +130,7 @@
             margin: 0 0 20px 0;
         }
 
-        /* 5. Wellen-Footer ganz unten */
+        /* 4. Wellen-Footer ganz unten */
         footer {
             width: 100%;
             height: 180px;
@@ -128,7 +153,7 @@
             text-transform: uppercase;
         }
 
-        /* Mobil-Optimierung für Smartphones */
+        /* Mobil-Optimierung */
         @media (max-width: 680px) {
             .main-container {
                 grid-template-columns: 1fr;
@@ -142,18 +167,22 @@
 </head>
 <body>
 
-    <!-- Kleiner Text oben -->
-    <div class="top-bar-text">Gebärden entdecken mit Stickersammelspaß</div>
-
-    <!-- Deine Kombi-Datei: Logo mit den Konfettis drumherum -->
-    <div class="logo-section">
-        <img src="logo.png" alt="Mit den Händen sprechen Logo">
+    <!-- Der obere Bereich regelt Text, Logo und das Konfetti im Hintergrund -->
+    <div class="top-hero-area">
+        <div class="top-bar-text">Gebärden entdecken mit Stickersammelspaß</div>
+        
+        <div class="logo-box">
+            <img src="logo.png" alt="Mit den Händen sprechen Logo">
+        </div>
     </div>
 
-    <!-- Das asymmetrische Raster -->
+    <!-- Dein separates Header-Wellen-PNG trennt den oberen Bereich clean ab -->
+    <img src="header.png" alt="Header Welle" class="header-wave">
+
+    <!-- Das Haupt-Raster -->
     <div class="main-container">
         
-        <!-- Links: Großes Bild und der zentrierte Text direkt darunter -->
+        <!-- Links: Großes Bild und Text -->
         <div class="left-column">
             <img src="bild1.jpg" alt="Geöffnetes Stickerheft" class="content-img">
             
@@ -164,7 +193,7 @@
             </div>
         </div>
         
-        <!-- Rechts: Die zwei kleinen Bilder untereinander -->
+        <!-- Rechts: Zwei kleine Bilder -->
         <div class="right-column">
             <img src="bild2.jpg" alt="Stickerspaß Heft-Details" class="content-img">
             <img src="bild3.jpg" alt="Kinder lesen im Heft" class="content-img">
@@ -179,4 +208,3 @@
 
 </body>
 </html>
-
