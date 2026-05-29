@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
     
     <style>
-        /* CSS Variablen */
+        /* CSS Variablen für deine CI-Farben */
         :root {
             --color-bg: #fffbf4;
             --color-text: #2c3e50;
-            --color-primary: #e67e22; 
-            --color-secondary: #e84393; 
+            
+            /* Neue CI-Farben */
+            --ci-yellow: #dea04f;
+            --ci-pink: #d790aa;
+            --ci-orange: #cb623f;
+            --ci-green: #599e6a;
+            --ci-blue: #487fb0;
+            
             --font-heading: 'Crayonize', sans-serif;
             --font-body: 'Neulis Sans', sans-serif;
         }
@@ -31,9 +37,10 @@
             color: var(--color-text);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative; /* Wichtig für das absolute Konfetti */
         }
 
-        /* Globale Bild-Einstellungen: Absolut keine Rahmen oder Kästen */
+        /* Globale Bild-Einstellungen: Komplett clean */
         img {
             max-width: 100%;
             height: auto;
@@ -43,24 +50,32 @@
             background: transparent;
         }
 
+        /* --- KONFETTI OVERLAY --- */
+        .konfetti-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Nimmt die volle Breite ein */
+            height: auto; /* Geht so weit runter, wie das Bild groß ist */
+            z-index: 10; /* Liegt ÜBER dem Header */
+            pointer-events: none; /* Blockiert keine Klicks auf Links/Bilder darunter */
+        }
+
         /* Header-Bereich */
         header {
             text-align: center;
+            position: relative; /* Damit es unter dem Konfetti bleibt */
         }
 
         .header-banner {
             width: 100%;
         }
 
-        /* Konfetti liegt NUR im Hintergrund des Logos */
         .logo-container {
             padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('konfetti.png');
-            background-repeat: repeat;
-            background-size: auto;
         }
 
         .logo {
@@ -72,13 +87,15 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1; /* Damit der Hauptinhalt sicher unter/über den richtigen Ebenen liegt */
         }
 
-        /* Typografie */
+        /* Typografie & CI-Farbzuweisung */
         .main-title {
             font-family: var(--font-heading);
             font-size: 2rem;
-            color: var(--color-primary);
+            color: var(--ci-orange); /* CI-Farbe 1 */
             text-align: center;
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -87,16 +104,32 @@
         .sub-title {
             font-family: var(--font-heading);
             font-size: 1.5rem;
-            color: var(--color-secondary);
+            color: var(--ci-blue); /* CI-Farbe 2 */
             text-align: center;
             margin-bottom: 35px;
         }
 
-        .section-heading {
+        .section-heading-intro {
             font-family: var(--font-heading);
             font-size: 1.6rem;
-            color: var(--color-primary);
+            color: var(--ci-pink); /* CI-Farbe 3 */
             margin-bottom: 15px;
+        }
+
+        .section-heading-how {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--ci-green); /* CI-Farbe 4 */
+            margin-bottom: 15px;
+        }
+
+        /* Den Text im "So funktioniert's" noch mit der letzten CI-Farbe akzentuieren */
+        .highlight-text {
+            color: var(--ci-yellow); /* CI-Farbe 5 */
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            display: block;
+            margin-top: 15px;
         }
 
         p, strong {
@@ -124,7 +157,6 @@
         }
 
         .intro-image-wrapper {
-            /* Keinerlei Styling, reiner Container für Flexbox */
             background: transparent;
             border: none;
             padding: 0;
@@ -141,7 +173,6 @@
 
         .gallery-item {
             width: 100%;
-            /* Keinerlei Styling, reiner Container für Flexbox */
             background: transparent;
             border: none;
             padding: 0;
@@ -171,7 +202,7 @@
             display: block;
         }
 
-        /* Platzierung des weißen Textes direkt auf dem Footer-Bild */
+        /* --- RESPONSIVER FOOTER TEXT --- */
         .footer-content {
             position: absolute;
             top: 50%;
@@ -181,9 +212,11 @@
             text-align: center;
             color: #ffffff;
             font-family: var(--font-body);
-            font-size: 0.85rem;
+            /* clamp() skaliert den Text fließend zwischen 0.6rem (Handy) und 1rem (Desktop) */
+            font-size: clamp(0.6rem, 2vw, 1rem); 
             padding: 0 15px;
             box-sizing: border-box;
+            white-space: nowrap; /* Verhindert, dass der Text zu früh umbricht, clamp regelt die Größe */
         }
 
         /* --- RESPONSIVE MEDIA QUERIES (Ab Tablet / Desktop) --- */
@@ -194,6 +227,11 @@
 
             .sub-title {
                 font-size: 2.2rem;
+            }
+
+            .section-heading-intro, 
+            .section-heading-how {
+                font-size: 2rem;
             }
 
             /* Intro nebeneinander */
@@ -216,16 +254,15 @@
             .gallery-item {
                 flex: 1;
             }
-
-            .footer-content {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header mit Banner und Logo auf Konfetti -->
+    <!-- Das Konfetti-Bild liegt als oberste Ebene über allem und skaliert automatisch -->
+    <img src="konfetti.png" alt="" class="konfetti-layer" aria-hidden="true">
+
+    <!-- Header mit Banner und Logo -->
     <header>
         <img src="header.png" alt="Header Banner" class="header-banner">
         <div class="logo-container">
@@ -242,7 +279,8 @@
         <!-- Intro-Sektion -->
         <section class="intro-section">
             <div class="intro-text-block">
-                <h2 class="section-heading">SCHÖN, DASS DU DA BIST!</h2>
+                <!-- Pinke CI-Farbe -->
+                <h2 class="section-heading-intro">SCHÖN, DASS DU DA BIST!</h2>
                 <p>
                     Dieses Projekt ist dein bunter Einstieg in eine Welt, in der 
                     man mit den Augen „hört“ und mit den Händen „spricht“.
@@ -269,7 +307,8 @@
 
         <!-- Anleitung -->
         <section class="how-it-works">
-            <h2 class="section-heading">So einfach funktioniert es:</h2>
+            <!-- Grüne CI-Farbe -->
+            <h2 class="section-heading-how">So einfach funktioniert es:</h2>
             <p>
                 Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft.
                 Dadurch öffnet sich sofort das passende Video.
@@ -277,11 +316,12 @@
             <p>
                 Schau dir die Gebärde genau an und mach sie einfach nach.
             </p>
-            <p><strong>Viel Spaß beim Entdecken!</strong></p>
+            <!-- Gelb-Orange CI-Farbe -->
+            <span class="highlight-text">Viel Spaß beim Entdecken!</span>
         </section>
     </main>
 
-    <!-- Footer mit Textüberlagerung -->
+    <!-- Footer mit responsivem Textüberlagerung -->
     <footer>
         <img src="footer.png" alt="Footer Banner" class="footer-banner">
         <div class="footer-content">
