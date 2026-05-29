@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gebärden entdecken mit Stickersammelspaß</title>
+    <!-- Adobe Typekit Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
     
     <style>
-        /* CSS Variablen für einfaches Style-Management */
+        /* CSS Variablen */
         :root {
             --color-bg: #fffbf4;
             --color-text: #2c3e50;
-            --color-primary: #e67e22; /* Verspieltes Orange */
-            --color-secondary: #e84393; /* Akzent-Pink */
+            --color-primary: #e67e22; 
+            --color-secondary: #e84393; 
             --font-heading: 'Crayonize', sans-serif;
             --font-body: 'Neulis Sans', sans-serif;
         }
@@ -32,15 +33,18 @@
             overflow-x: hidden;
         }
 
+        /* Globale Bild-Einstellungen: Absolut keine Rahmen oder Kästen */
         img {
             max-width: 100%;
             height: auto;
             display: block;
+            border: none;
+            outline: none;
+            background: transparent;
         }
 
         /* Header-Bereich */
         header {
-            position: relative;
             text-align: center;
         }
 
@@ -48,11 +52,15 @@
             width: 100%;
         }
 
+        /* Konfetti liegt NUR im Hintergrund des Logos */
         .logo-container {
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: url('konfetti.png');
+            background-repeat: repeat;
+            background-size: auto;
         }
 
         .logo {
@@ -64,21 +72,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
-        }
-
-        /* Konfetti-Hintergrund Dekoration */
-        .konfetti-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('konfetti.png');
-            background-repeat: repeat;
-            opacity: 0.15;
-            z-index: -1;
-            pointer-events: none;
         }
 
         /* Typografie */
@@ -89,7 +82,6 @@
             text-align: center;
             margin-bottom: 10px;
             text-transform: uppercase;
-            padding: 0 10px;
         }
 
         .sub-title {
@@ -97,7 +89,7 @@
             font-size: 1.5rem;
             color: var(--color-secondary);
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .section-heading {
@@ -107,16 +99,17 @@
             margin-bottom: 15px;
         }
 
-        /* Hero- & Intro-Bereich (Mobile First: Untereinander) */
+        p, strong {
+            font-family: var(--font-body);
+        }
+
+        /* Intro-Bereich (Clean) */
         .intro-section {
             display: flex;
             flex-direction: column;
             gap: 25px;
             margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 10px 0;
         }
 
         .intro-text-block {
@@ -130,12 +123,15 @@
             margin-bottom: 15px;
         }
 
-        .intro-image-wrapper img {
-            border-radius: 10px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        .intro-image-wrapper {
+            /* Keinerlei Styling, reiner Container für Flexbox */
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
         }
 
-        /* Produkt-Vorschau Galerie (Mobile First: Untereinander) */
+        /* Produkt-Vorschau Galerie (Clean) */
         .product-gallery {
             display: flex;
             flex-direction: column;
@@ -144,25 +140,18 @@
         }
 
         .gallery-item {
-            background: #fff;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            width: 100%;
+            /* Keinerlei Styling, reiner Container für Flexbox */
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* "So funktioniert's" Anleitung */
+        /* Anleitung */
         .how-it-works {
-            background: linear-gradient(135deg, #fff 0%, #fff9f2 100%);
-            padding: 30px 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--color-secondary);
+            padding: 20px 0;
             margin-bottom: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .how-it-works p {
@@ -170,21 +159,31 @@
             margin-bottom: 15px;
         }
 
-        /* Footer-Bereich */
+        /* Footer-Bereich mit Text-Overlay */
         footer {
-            margin-top: 40px;
-            text-align: center;
-            background: #fff;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
         }
 
         .footer-banner {
             width: 100%;
+            display: block;
         }
 
+        /* Platzierung des weißen Textes direkt auf dem Footer-Bild */
         .footer-content {
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #7f8c8d;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            padding: 0 15px;
+            box-sizing: border-box;
         }
 
         /* --- RESPONSIVE MEDIA QUERIES (Ab Tablet / Desktop) --- */
@@ -197,11 +196,11 @@
                 font-size: 2.2rem;
             }
 
-            /* Intro nebeneinander auf großen Bildschirmen */
+            /* Intro nebeneinander */
             .intro-section {
                 flex-direction: row;
-                padding: 40px;
-                gap: 40px;
+                gap: 50px;
+                align-items: center;
             }
 
             .intro-text-block, .intro-image-wrapper {
@@ -218,14 +217,15 @@
                 flex: 1;
             }
 
-            .how-it-works {
-                padding: 40px;
+            .footer-content {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header mit Banner und Logo auf Konfetti -->
     <header>
         <img src="header.png" alt="Header Banner" class="header-banner">
         <div class="logo-container">
@@ -233,50 +233,59 @@
         </div>
     </header>
 
+    <!-- Hauptinhalt -->
     <main>
-        <div class="konfetti-bg"></div>
+        <!-- Titel-Sektion -->
+        <h1 class="main-title">GEBÄRDEN ENTDECKEN MIT STICKERSAMMELSPASS</h1>
+        <p class="sub-title">Mit den Händen sprechen</p>
 
-        <h1 class="main-title">GEBÄRDEN ENTDECKEN MIT STICKERSAMMELSPASS </h1>
-        <p class="sub-title">Mit den Händen sprechen </p>
-
+        <!-- Intro-Sektion -->
         <section class="intro-section">
             <div class="intro-text-block">
-                <h2 class="section-heading">SCHÖN, DASS DU DA BIST! </h2>
+                <h2 class="section-heading">SCHÖN, DASS DU DA BIST!</h2>
                 <p>
                     Dieses Projekt ist dein bunter Einstieg in eine Welt, in der 
-                    man mit den Augen „hört“ und mit den Händen „spricht“. </p>
+                    man mit den Augen „hört“ und mit den Händen „spricht“.
+                </p>
                 <p>
                     Wenn wir lernen, auf unterschiedliche Arten miteinander 
-                    zu kommunizieren, bauen wir Barrieren ab. </p>
+                    zu kommunizieren, bauen wir Barrieren ab.
+                </p>
             </div>
             <div class="intro-image-wrapper">
                 <img src="bild3.jpg" alt="Kinder entdecken das Gebärden-Heft">
             </div>
         </section>
 
+        <!-- Produkt-Vorschau Galerie -->
         <section class="product-gallery">
             <div class="gallery-item">
                 <img src="bild1.jpg" alt="Stickersammelpackungen">
             </div>
             <div class="gallery-item">
-                <img src="bild2.jpg" alt="Einblick in das Stickerheft - Tiere und Gebärden">
+                <img src="bild2.jpg" alt="Einblick in das Stickerheft">
             </div>
         </section>
 
+        <!-- Anleitung -->
         <section class="how-it-works">
-            <h2 class="section-heading">So einfach funktioniert es: </h2>
+            <h2 class="section-heading">So einfach funktioniert es:</h2>
             <p>
-                Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft. Dadurch öffnet sich sofort das passende Video. </p>
+                Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft.
+                Dadurch öffnet sich sofort das passende Video.
+            </p>
             <p>
-                Schau dir die Gebärde genau an und mach sie einfach nach. </p>
-            <p><strong>Viel Spaß beim Entdecken! </strong></p>
+                Schau dir die Gebärde genau an und mach sie einfach nach.
+            </p>
+            <p><strong>Viel Spaß beim Entdecken!</strong></p>
         </section>
     </main>
 
+    <!-- Footer mit Textüberlagerung -->
     <footer>
         <img src="footer.png" alt="Footer Banner" class="footer-banner">
         <div class="footer-content">
-            <p>LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES </p>
+            <p>LOTTE SCHELLHAMMER 2026 | IMPRESSUM & RECHTLICHES</p>
         </div>
     </footer>
 
