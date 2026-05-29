@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gebärden entdecken mit Stickersammelspaß</title>
-    <!-- Adobe Typekit Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
     
     <style>
@@ -13,7 +12,7 @@
             --color-bg: #fffbf4;
             --color-text: #2c3e50;
             
-            /* Neue CI-Farben */
+            /* CI-Farben */
             --ci-yellow: #dea04f;
             --ci-pink: #d790aa;
             --ci-orange: #cb623f;
@@ -37,7 +36,7 @@
             color: var(--color-text);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative; /* Wichtig für das absolute Konfetti */
+            position: relative;
         }
 
         /* Globale Bild-Einstellungen: Komplett clean */
@@ -55,24 +54,25 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* Nimmt die volle Breite ein */
-            height: auto; /* Geht so weit runter, wie das Bild groß ist */
-            z-index: 10; /* Liegt ÜBER dem Header */
-            pointer-events: none; /* Blockiert keine Klicks auf Links/Bilder darunter */
+            width: 100%;
+            height: auto;
+            z-index: 10;
+            pointer-events: none;
         }
 
         /* Header-Bereich */
         header {
             text-align: center;
-            position: relative; /* Damit es unter dem Konfetti bleibt */
+            position: relative;
         }
 
         .header-banner {
             width: 100%;
         }
 
+        /* Logo-Container: Berührt jetzt direkt den Header */
         .logo-container {
-            padding: 40px 20px;
+            padding: 0 20px 30px 20px; /* Oben 0, damit es den Header berührt */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -88,14 +88,14 @@
             margin: 0 auto;
             padding: 20px;
             position: relative;
-            z-index: 1; /* Damit der Hauptinhalt sicher unter/über den richtigen Ebenen liegt */
+            z-index: 1;
         }
 
         /* Typografie & CI-Farbzuweisung */
         .main-title {
             font-family: var(--font-heading);
             font-size: 2rem;
-            color: var(--ci-orange); /* CI-Farbe 1 */
+            color: var(--ci-orange);
             text-align: center;
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -104,7 +104,7 @@
         .sub-title {
             font-family: var(--font-heading);
             font-size: 1.5rem;
-            color: var(--ci-blue); /* CI-Farbe 2 */
+            color: var(--ci-blue);
             text-align: center;
             margin-bottom: 35px;
         }
@@ -112,20 +112,19 @@
         .section-heading-intro {
             font-family: var(--font-heading);
             font-size: 1.6rem;
-            color: var(--ci-pink); /* CI-Farbe 3 */
+            color: var(--ci-pink);
             margin-bottom: 15px;
         }
 
         .section-heading-how {
             font-family: var(--font-heading);
             font-size: 1.6rem;
-            color: var(--ci-green); /* CI-Farbe 4 */
+            color: var(--ci-green);
             margin-bottom: 15px;
         }
 
-        /* Den Text im "So funktioniert's" noch mit der letzten CI-Farbe akzentuieren */
         .highlight-text {
-            color: var(--ci-yellow); /* CI-Farbe 5 */
+            color: var(--ci-yellow);
             font-family: var(--font-heading);
             font-size: 1.4rem;
             display: block;
@@ -179,10 +178,10 @@
             margin: 0;
         }
 
-        /* Anleitung */
+        /* Anleitung: Abstand nach unten stark verringert */
         .how-it-works {
             padding: 20px 0;
-            margin-bottom: 50px;
+            margin-bottom: 10px; /* Kaum noch Platz bis zum Footer */
         }
 
         .how-it-works p {
@@ -194,7 +193,7 @@
         footer {
             position: relative;
             width: 100%;
-            margin-top: 50px;
+            margin-top: 10px; /* Kaum noch Platz nach oben */
         }
 
         .footer-banner {
@@ -202,21 +201,20 @@
             display: block;
         }
 
-        /* --- RESPONSIVER FOOTER TEXT --- */
+        /* --- RESPONSIVER FOOTER TEXT (Etwas nach unten verschoben) --- */
         .footer-content {
             position: absolute;
-            top: 50%;
+            top: 62%; /* Von 50% auf 62% geändert, um den Text nach unten zu schieben */
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;
             text-align: center;
             color: #ffffff;
             font-family: var(--font-body);
-            /* clamp() skaliert den Text fließend zwischen 0.6rem (Handy) und 1rem (Desktop) */
             font-size: clamp(0.6rem, 2vw, 1rem); 
             padding: 0 15px;
             box-sizing: border-box;
-            white-space: nowrap; /* Verhindert, dass der Text zu früh umbricht, clamp regelt die Größe */
+            white-space: nowrap;
         }
 
         /* --- RESPONSIVE MEDIA QUERIES (Ab Tablet / Desktop) --- */
@@ -259,10 +257,8 @@
 </head>
 <body>
 
-    <!-- Das Konfetti-Bild liegt als oberste Ebene über allem und skaliert automatisch -->
     <img src="konfetti.png" alt="" class="konfetti-layer" aria-hidden="true">
 
-    <!-- Header mit Banner und Logo -->
     <header>
         <img src="header.png" alt="Header Banner" class="header-banner">
         <div class="logo-container">
@@ -270,16 +266,12 @@
         </div>
     </header>
 
-    <!-- Hauptinhalt -->
     <main>
-        <!-- Titel-Sektion -->
         <h1 class="main-title">GEBÄRDEN ENTDECKEN MIT STICKERSAMMELSPASS</h1>
         <p class="sub-title">Mit den Händen sprechen</p>
 
-        <!-- Intro-Sektion -->
         <section class="intro-section">
             <div class="intro-text-block">
-                <!-- Pinke CI-Farbe -->
                 <h2 class="section-heading-intro">SCHÖN, DASS DU DA BIST!</h2>
                 <p>
                     Dieses Projekt ist dein bunter Einstieg in eine Welt, in der 
@@ -295,7 +287,6 @@
             </div>
         </section>
 
-        <!-- Produkt-Vorschau Galerie -->
         <section class="product-gallery">
             <div class="gallery-item">
                 <img src="bild1.jpg" alt="Stickersammelpackungen">
@@ -305,9 +296,7 @@
             </div>
         </section>
 
-        <!-- Anleitung -->
         <section class="how-it-works">
-            <!-- Grüne CI-Farbe -->
             <h2 class="section-heading-how">So einfach funktioniert es:</h2>
             <p>
                 Scanne mit deinem Smartphone die QR-Codes direkt neben den Stickern im Heft.
@@ -316,12 +305,10 @@
             <p>
                 Schau dir die Gebärde genau an und mach sie einfach nach.
             </p>
-            <!-- Gelb-Orange CI-Farbe -->
             <span class="highlight-text">Viel Spaß beim Entdecken!</span>
         </section>
     </main>
 
-    <!-- Footer mit responsivem Textüberlagerung -->
     <footer>
         <img src="footer.png" alt="Footer Banner" class="footer-banner">
         <div class="footer-content">
